@@ -10,9 +10,13 @@ npm install chart.js react-chartjs-2
 
 
 
-You will get Spmething like {Down}
+You will get Something like {Down}
 
 ![alt text](image.png)
+
+
+![alt text](image-1.png)
+
 
 
 Developed By Piko dev => HAMZA BRAIMI 

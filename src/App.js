@@ -1,38 +1,70 @@
-import logo from './logo.svg';
+import { useEffect, useState } from "react";
 import './App.css';
-import BarChart from './BarChart';
-import PieChart from './PieChart';
-import LineChart from './LineChart';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter,Route,Routes,Link } from 'react-router-dom';
+
+import Fcaller from "./SimpleCharts/Fcaller";
+import TradChart from "./TradingCharts/TradChart";
+
+
 
 function App() {
+
+const actions = ["Cat1", "Cat2", "Cat3"];
+const [getCurrentRoute,setCurrentRoute]=useState();
+
+
+useEffect(()=>{
+
+ let path=window.location.pathname;
+ path=path.slice(1,path.length)
+ setCurrentRoute(path)
+ 
+})
+
   return (
-    <div className="container my-4">
-    <div className="row my-4">
-        <div className="col-6">
-           
-            <BarChart  />
-        </div>
-        <div className="col-6">
+    <BrowserRouter>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-secondary" >
+      <div className="container-fluid">
+        <Link className="navbar-brand" to={"/"}>HB</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {actions.map((action)=>(
+
+            <li key={action} 
             
-        <LineChart />
+            onClick={()=>setCurrentRoute(action)}
+
+            className="nav-item">
+              <Link className={
+                getCurrentRoute===action ? "nav-link text-dark ":"nav-link"
+              }
+              
+              aria-current="page" to={"/"+action}>
+                {action}
+              </Link>
+            </li>
+
+            ))}
+          
+          </ul>
+      
         </div>
-        </div>
-         {/* Second Bloc */}
-        <div className="row" >
-        <div className="col-12  justify-content-center" > 
-            <PieChart />
-        </div>
-        
-    </div>
-</div>
+      </div>
+    </nav>
+    <Routes>
+
+<Route path="/Cat1" element={<Fcaller/>}> </Route>
+<Route path="/Cat2" element={<TradChart/>}> </Route>
+<Route path="/Cat3" element={<Fcaller/>}> </Route>
+</Routes>
+</BrowserRouter>
 
   );
 }
 
 export default App;
-
-{/* <div className="col-6" style="width: 100%; height: 100%;">
-    <BarChart style="width: 100%; height: 100%;" />
-</div> */}
 
