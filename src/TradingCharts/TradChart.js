@@ -7,7 +7,7 @@ const TradChart = () => {
   const [numberFormat, setNumberFormat] = useState(null);
 
   useEffect(() => {
-    const options = { style: 'currency', currency: 'USD' };
+    const options = { style: 'currency', currency: 'MAD' };
     const newNumberFormat = new Intl.NumberFormat('en-US', options);
     setNumberFormat(newNumberFormat);
   }, []);

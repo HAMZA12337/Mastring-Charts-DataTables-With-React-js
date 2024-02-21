@@ -5,12 +5,11 @@ import { BrowserRouter,Route,Routes,Link } from 'react-router-dom';
 
 import Fcaller from "./SimpleCharts/Fcaller";
 import TradChart from "./TradingCharts/TradChart";
-
-
+import Table from "./Tables/Table";
 
 function App() {
 
-const actions = ["Cat1", "Cat2", "Cat3"];
+const actions = ["Cat1", "Cat2", "Tables"];
 const [getCurrentRoute,setCurrentRoute]=useState();
 
 
@@ -59,7 +58,7 @@ useEffect(()=>{
 
 <Route path="/Cat1" element={<Fcaller/>}> </Route>
 <Route path="/Cat2" element={<TradChart/>}> </Route>
-<Route path="/Cat3" element={<Fcaller/>}> </Route>
+<Route path="/Tables" element={<Table/>}> </Route>
 </Routes>
 </BrowserRouter>
 

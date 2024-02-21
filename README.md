@@ -18,6 +18,9 @@ You will get Something like {Down}
 ![alt text](image-1.png)
 
 
+// tabeles
+npm install @coreui/react
+https://coreui.io/react/docs/getting-started/introduction/
 
 Developed By Piko dev => HAMZA BRAIMI 
 
